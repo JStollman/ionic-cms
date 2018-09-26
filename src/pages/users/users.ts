@@ -9,6 +9,8 @@ import {
 import { UsersProvider } from '../../providers/users/users';
 import { User } from '../../models/user/user';
 
+import { UserPage } from '../user/user';
+
 /**
  * Generated class for the UsersPage page.
  *
@@ -54,6 +56,8 @@ export class UsersPage {
     );
   }
 
-
+  toUser(id:string): void{
+    this.navCtrl.push(UserPage, {id: id});
+  }
 
 }

@@ -1,16 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
 import {User } from '../../models/user/user';
 
-/*
-  Generated class for the UsersProvider provider.
+const httpOptions = {
+  headers: new HttpHeaders({
+  'Content-Type': 'application/json'})
+};
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class UsersProvider {
 
@@ -26,8 +25,8 @@ export class UsersProvider {
     return this.http.get<User>(`${this.url}/${id}`);
   }
 
-  createUser(): void{
-    console.log('create user');
+  createUser(user:User): Observable<User>{
+    return this.http.post<User>(this.url, user, httpOptions);
   }
 
   ediUser(): void{

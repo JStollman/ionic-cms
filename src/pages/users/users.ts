@@ -10,6 +10,8 @@ import { UsersProvider } from '../../providers/users/users';
 import { User } from '../../models/user/user';
 
 import { UserPage } from '../user/user';
+import { UserCreatePage } from '../user-create/user-create';
+
 
 /**
  * Generated class for the UsersPage page.
@@ -56,8 +58,12 @@ export class UsersPage {
     );
   }
 
-  toUser(id:string): void{
+  public toUser(id:string): void{
     this.navCtrl.push(UserPage, {id: id});
+  }
+
+  public toUserCreate(): void {
+    this.navCtrl.push(UserCreatePage);
   }
 
 }
